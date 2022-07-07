@@ -1,0 +1,11 @@
+button {
+    cursor: pointer;
+    width: 220px;
+    height: 38px;
+    color: #ffffff;
+    border-radius: 3px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    background-color: indianred;
+    transition: .4s;
+}
