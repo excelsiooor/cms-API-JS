@@ -1,11 +1,15 @@
-import './App.css';
-import LogIn from './components/LogIn';
+import './Styles/Main.css'
+import {BrowserRouter} from 'react-router-dom';
+import AppRouter from './router/AppRouter';
+import Navbar from './components/UI/Navbar/Navbar';
 
 function App() {
   return (
     <div className="main">
-      <h1>Log In Form</h1>
-      <LogIn/>
+      <BrowserRouter>
+            <Navbar/>
+            <AppRouter/>
+        </BrowserRouter>
     </div>
   );
 }

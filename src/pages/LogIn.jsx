@@ -1,8 +1,8 @@
-import {logIn} from '../API/api';
+import API from '../API/api';
 import { useState} from 'react';
-import MyInput from "./UI/MyInput/MyInput";
-import MyButton from './UI/MyButton/MyButton';
-import '../App.css';
+import MyInput from "../components/UI/MyInput/MyInput";
+import MyButton from '../components/UI/MyButton/MyButton';
+import '../Styles/Main.css';
 
 function LogIn () {
 
@@ -14,15 +14,17 @@ const [inputValue, setinputValue] = useState({
 
     function handleSubmit (e) {
         e.preventDefault();
-        logIn(inputValue);
+        API.postData(inputValue);
     }
 
     return(
-        <form
+        <form 
+        className='log'
         onSubmit={
             (e)=>{handleSubmit(e)}
         }
         >
+            <h1>Log In Form</h1>
             <MyInput 
             value={inputValue.username}
             onChange={e => setinputValue({...inputValue, username: e.target.value})}
@@ -42,9 +44,9 @@ const [inputValue, setinputValue] = useState({
             onChange={e => setinputValue({...inputValue, confirmPassword: e.target.value})}
             type="password" 
             name='passwordConfirm' 
-            placeholder="passwordConfirm"
+            placeholder="Confirm"
             />
-            <MyButton type="submit">submit</MyButton>
+            <MyButton type="submit" children="submit"></MyButton>
         </form>
     )
 }

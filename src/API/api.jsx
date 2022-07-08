@@ -1,19 +1,46 @@
+import React from "react";
 
-export async function postData(url = '', data = {}) {
-    // Default options are marked with *
-    const response = await fetch(url, {
+const baseURL = 'http://134.249.102.244:8080';
+
+export default class API extends React.Component{
+
+  static async getAll() {
+    const responce = await fetch( baseURL + '/main/movies', {
+      method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    });
+    const films = await responce.json()
+    console.log(films);
+    return films
+  }
+
+  static async postData( data ) {
+    const response = await fetch(baseURL + '/registration', {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
         headers: {
         'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
         },
-      body: JSON.stringify(data) // body data type must match "Content-Type" header
+      body: JSON.stringify(data)
     });
-    return await response.json(); // parses JSON response into native JavaScript objects
+    return await response.json();
+  }
+
 }
-export function logIn (data){
-    postData('http://134.249.102.244:8080/registration', data)
-    .then((data) => {
-      console.log(data); // JSON data parsed by `response.json()` call
-    });
-}
+
+// async function postData(url = '', data = {}) {
+//     const response = await fetch(url, {
+//       method: 'POST', // *GET, POST, PUT, DELETE, etc.
+//         headers: {
+//         'Content-Type': 'application/json'
+//         },
+//       body: JSON.stringify(data)
+//     });
+//     return await response.json();
+// }
+
+// export function logIn (data){
+//     postData('http://134.249.102.244:8080/registration', data)
+//     .then((data) => {
+//       console.log(data);
+//     });
+// }
+
