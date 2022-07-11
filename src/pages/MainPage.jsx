@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import '../Styles/Main.css'
+import '../Styles/Main.css';
 import API from '../API/api';
-import CreateMovie from '../components/CreateMovie';
+import { baseURL } from '../Global/globalValues';
 
 function MainPage() {
 
@@ -9,7 +9,6 @@ function MainPage() {
 
     const handler = () => { 
         API.getAll().then(data => {setMovies([...movies, ...data])
-        console.log('+++' + data);
         })
     }
 
@@ -19,13 +18,16 @@ function MainPage() {
 
     return(
         <div>
-            <CreateMovie/>
             {movies.map(
                 movie => 
                 <div
                 key={movie.id}
                 >
                 {movie.name}
+                <img 
+                src={ baseURL + '/resources/images/' + movie.mainImageName}
+                alt="woops"
+                />
                 </div>
                 )}
         </div>

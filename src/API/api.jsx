@@ -1,6 +1,5 @@
 import React from "react";
-
-const baseURL = 'http://134.249.102.244:8080';
+import { baseURL } from "../Global/globalValues";
 
 export default class API extends React.Component{
 
@@ -13,7 +12,7 @@ export default class API extends React.Component{
     return films
   }
 
-  static async postData( data ) {
+  static async registration ( data ) {
     const response = await fetch(baseURL + '/registration', {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
         headers: {
@@ -24,23 +23,15 @@ export default class API extends React.Component{
     return await response.json();
   }
 
+  static async postMovie ( data ) {
+    const response = await fetch(baseURL + '/admin/movies', {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      // headers: {'Content-Type':'multipart/form-data'},
+      body: data
+    });
+    console.log('postMovie' + response);
+    return await response.text();
+  }
+
 }
-
-// async function postData(url = '', data = {}) {
-//     const response = await fetch(url, {
-//       method: 'POST', // *GET, POST, PUT, DELETE, etc.
-//         headers: {
-//         'Content-Type': 'application/json'
-//         },
-//       body: JSON.stringify(data)
-//     });
-//     return await response.json();
-// }
-
-// export function logIn (data){
-//     postData('http://134.249.102.244:8080/registration', data)
-//     .then((data) => {
-//       console.log(data);
-//     });
-// }
 

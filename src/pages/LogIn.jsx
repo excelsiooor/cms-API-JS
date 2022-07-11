@@ -4,7 +4,7 @@ import MyInput from "../components/UI/MyInput/MyInput";
 import MyButton from '../components/UI/MyButton/MyButton';
 import '../Styles/Main.css';
 
-function LogIn () {
+function Auth () {
 
 const [inputValue, setinputValue] = useState({
     username: '',
@@ -14,7 +14,7 @@ const [inputValue, setinputValue] = useState({
 
     function handleSubmit (e) {
         e.preventDefault();
-        API.postData(inputValue);
+        API.registration (inputValue);
     }
 
     return(
@@ -30,14 +30,14 @@ const [inputValue, setinputValue] = useState({
             onChange={e => setinputValue({...inputValue, username: e.target.value})}
             type='text' 
             name='username' 
-            placeholder="username" 
+            placeholder="Username" 
             />
             <MyInput 
             value={inputValue.password}
             onChange={e => setinputValue({...inputValue, password: e.target.value})}
             type="password" 
             name='password' 
-            placeholder="password"
+            placeholder="Password"
             />
             <MyInput 
             value={inputValue.confirmPassword}
@@ -50,4 +50,4 @@ const [inputValue, setinputValue] = useState({
         </form>
     )
 }
-export default LogIn;
+export default Auth;
