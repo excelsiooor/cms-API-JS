@@ -1,23 +1,23 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import MyButton from "../MyButton/MyButton";
 import classes from './Navbar.module.css';
 
 const Navbar = () => {
 
+    // const logo = '/src/Img/logo.png'
+
     return (
-        <div>
             <div className={classes.navbar}>
-                <MyButton>
-                    Log Out
-                </MyButton>
+                <a href='/main'>
+                <div className={classes.logo}></div>
+                {/* <img src={logo} alt='woops' /> */}
+                </a>
                 <div className={classes.navbarLinks}>
                 <Link to='/logIn'>LogIn</Link>
                 <Link to='/main'>Main</Link>
                 <Link to='/admin'>Admin</Link>    
                 </div>
             </div>
-        </div>
     );
 };
 

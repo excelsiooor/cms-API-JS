@@ -2,7 +2,7 @@ import {useState} from "react";
 import API from "../API/api";
 import MyButton from "./UI/MyButton/MyButton";
 import MyInput from "./UI/MyInput/MyInput";
-import '../Styles/Main.css';
+
 
 const CreateMovie = () => {
 
@@ -14,7 +14,7 @@ const CreateMovie = () => {
     function sendData (e) {
         e.preventDefault();
         let formData= new FormData();
-        formData.append("images", inputValue.images[0]);
+        formData.append("mainImage", inputValue.images[0]);
         formData.append('name', inputValue.name);
         API.postMovie (formData).then((responce)=> {
             console.log(responce)
@@ -23,7 +23,7 @@ const CreateMovie = () => {
 
     return ( 
         <form 
-        className="admin"
+        className="admin-form"
         onSubmit={e => {sendData(e)}}>
             <MyInput 
             type='text' 
@@ -32,7 +32,7 @@ const CreateMovie = () => {
             />
             <MyInput 
             type="file" 
-            name="images"
+            name="mainImage"
             onChange={ e => setinputValue({...inputValue, images: e.target.files})}
             />
             <MyButton type="submit">submit</MyButton>

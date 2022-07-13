@@ -6,6 +6,7 @@ button {
     border-radius: 3px;
     font-size: 18px;
     letter-spacing: 1px;
-    background-color: indianred;
+    background-color: black;
     transition: .4s;
+    text-transform: uppercase;
 }

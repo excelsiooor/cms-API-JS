@@ -1,11 +1,11 @@
-import './Styles/Main.css'
 import {BrowserRouter} from 'react-router-dom';
 import AppRouter from './router/AppRouter';
 import Navbar from './components/UI/Navbar/Navbar';
+import './Styles/App.css'
 
 function App() {
   return (
-    <div className="main">
+    <div>
       <BrowserRouter>
             <Navbar/>
             <AppRouter/>

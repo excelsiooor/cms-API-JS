@@ -26,7 +26,6 @@ export default class API extends React.Component{
   static async postMovie ( data ) {
     const response = await fetch(baseURL + '/admin/movies', {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      // headers: {'Content-Type':'multipart/form-data'},
       body: data
     });
     console.log('postMovie' + response);
