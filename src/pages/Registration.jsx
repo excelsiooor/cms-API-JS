@@ -3,16 +3,17 @@ import { useState} from 'react';
 import MyInput from "../components/UI/MyInput/MyInput";
 import MyButton from '../components/UI/MyButton/MyButton';
 
-function LogIn () {
+function Registration () {
 
 const [inputValue, setinputValue] = useState({
     username: '',
     password: '',
+    confirmPassword: '',
 });
 
     function postReg (e) {
         e.preventDefault();
-        API.logIn (inputValue)
+        API.registration (inputValue)
         .then((responce) => {
             console.log(responce.text().then(val => {console.log(val);}));
         }).catch((err) => {
@@ -27,7 +28,7 @@ const [inputValue, setinputValue] = useState({
             onSubmit={
             (e)=>{postReg(e)}}
             >
-                <h1>Log In Form</h1>
+                <h1>Registration</h1>
                 <MyInput 
                 value={inputValue.username}
                 onChange={e => setinputValue({...inputValue, username: e.target.value})}
@@ -42,9 +43,16 @@ const [inputValue, setinputValue] = useState({
                 name='password' 
                 placeholder="Password"
                 />
+                <MyInput 
+                value={inputValue.confirmPassword}
+                onChange={e => setinputValue({...inputValue, confirmPassword: e.target.value})}
+                type="password" 
+                name='passwordConfirm' 
+                placeholder="Confirm"
+                />
                 <MyButton type="submit" children="submit"></MyButton>
             </form>
         </div>
     )
 }
-export default LogIn;
+export default Registration;

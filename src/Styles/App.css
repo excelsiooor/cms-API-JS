@@ -63,8 +63,11 @@ form .form-control i {
 .auth-form {
     text-align: center;
     color: #ffffffd5;
-    width: 350px;
-    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 40px 40px 40px;
     padding-top: 30px;
     background: transparent;
     background-color: rgba(250, 235, 215, 0.95);
@@ -89,9 +92,18 @@ form .form-control i {
 }
 
 .admin-form {
+    text-align: center;
+    color: #ffffffd5;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding: 10px 40px 40px 40px;
+    padding-top: 30px;
+    background: transparent;
+    background-color: rgba(250, 235, 215, 0.95);
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 /** ----------------- main -----------------*/

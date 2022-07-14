@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import classes from './Toggle.module.css'
 
 function Toggle({movies, scrollRef}) {
 
@@ -47,12 +48,12 @@ function Toggle({movies, scrollRef}) {
         <div>
             <div 
                 style={{display:statusLeft}}
-                className='main-mp-topleft'
+                className={classes.toggleLeft}
                 onClick={moveLeft}
             ></div>
             <div 
                 style={{display:statusRight}}
-                className='main-mp-topright'
+                className={classes.toggleRight}
                 onClick={moveRight}
             ></div>
         </div>

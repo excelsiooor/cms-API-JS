@@ -1,4 +1,4 @@
-.main-mp-topleft, .main-mp-topright {
+.toggleLeft, .toggleRight {
     position: fixed;
     width: 77px;
     height: 77px;
@@ -19,12 +19,12 @@
     align-items: center;
     box-sizing: border-box;
 }
-.main-mp-topright {
+.toggleRight {
     left: auto;
     right: 16px;
 }
 
-.main-mp-topleft::before, .main-mp-topright::before {
+.toggleLeft::before, .toggleRight::before {
     content: "";
     display: block;
     width: 24px;
@@ -37,7 +37,7 @@
     transform: rotate(-135deg);
 }
 
-.main-mp-topleft::after, .main-mp-topright::after {
+.toggleLeft::after, .toggleRight::after {
     content: "";
     position: fixed;
     width: 104px;
@@ -45,12 +45,12 @@
     left: 0;
     top: 0;
 }
-.main-mp-topright::before {
+.toggleRight::before {
     margin-left: -12px;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-.main-mp-topright::after {
+.toggleRight::after {
     width: 104px;
     left: auto;
     right: 0;

@@ -13,9 +13,10 @@ const Navbar = () => {
                 {/* <img src={logo} alt='woops' /> */}
                 </a>
                 <div className={classes.navbarLinks}>
-                <Link to='/logIn'>LogIn</Link>
-                <Link to='/main'>Main</Link>
-                <Link to='/admin'>Admin</Link>    
+                    <Link to='/registration'>Reg</Link>
+                    <Link to='/logIn'>LogIn</Link>
+                    <Link to='/main'>Main</Link>
+                    <Link to='/admin'>Admin</Link>    
                 </div>
             </div>
     );

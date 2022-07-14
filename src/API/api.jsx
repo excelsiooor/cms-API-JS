@@ -20,7 +20,18 @@ export default class API extends React.Component{
         },
       body: JSON.stringify(data)
     });
-    return await response.json();
+    return await response/* .json() */;
+  }
+
+  static async logIn ( data ) {
+    const response = await fetch(baseURL + '/logIn', {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+        'Content-Type': 'application/json'
+        },
+      body: JSON.stringify(data)
+    });
+    return await response/* .json() */;
   }
 
   static async postMovie ( data ) {
