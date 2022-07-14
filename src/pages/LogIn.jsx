@@ -14,7 +14,7 @@ const [inputValue, setinputValue] = useState({
 
     function handleSubmit (e) {
         e.preventDefault();
-        API.registration (inputValue);
+        API.registration (inputValue).then(responce => {console.log(responce);});
     }
 
     return(

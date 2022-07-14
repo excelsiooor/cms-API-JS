@@ -1,32 +1,14 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useRef} from 'react';
 import API from '../API/api';
+import Toggle from '../components/UI/Toggle/Toggle';
 import { baseURL} from '../Global/globalValues';
 
 function MainPage() {
 
     const [movies, setMovies] = useState([]);
+    const toggleBar = useRef();
     const handler = async () => { 
         return await API.getAll().then(data => {setMovies([...movies, ...data])
-        })
-    }
-
-    let start = 0;
-    const step = 350;
-
-    const moveLeft = () => {
-        if (start>0) start = start-step
-        let toScroll = document.getElementById('content')
-        toScroll.scroll({
-            left: start,
-            behavior: 'smooth'
-        })
-    }
-    const moveRight = () => {
-        if (movies.length*step>start) start = start +step
-        let toScroll = document.getElementById('content')
-        toScroll.scroll({
-            left: start,
-            behavior: 'smooth'
         })
     }
 
@@ -40,15 +22,8 @@ function MainPage() {
 
     return(
         <div className='main'>
-            <div 
-                className='main-mp-topleft'
-                onClick={moveLeft}
-            ></div>
-            <div 
-                className='main-mp-topright'
-                onClick={moveRight}
-            ></div>
-            <div id='content' className='main-content'>
+            <Toggle movies={movies} scrollRef={toggleBar} />
+            <div ref={toggleBar} id='content' className='main-content'>
             {movies.map(
                 movie => 
                 <div

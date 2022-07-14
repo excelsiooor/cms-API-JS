@@ -20,7 +20,7 @@ return (
                 key={route.path}
             />
         )}
-        {/* <Redirect to='/main'/> */}
+        <Redirect to='/main'/>
     </Switch>
 );
 }
