@@ -12,11 +12,11 @@ const [inputValue, setinputValue] = useState({
 
     function postReg (e) {
         e.preventDefault();
-        API.logIn (inputValue)
-        .then((responce) => {
-            console.log(responce.text().then(val => {console.log(val);}));
-        }).catch((err) => {
-            console.log(err);
+        let formData= new FormData();
+        formData.append('username', inputValue.username);
+        formData.append('password', inputValue.password);
+        API.logIn (formData).then((responce)=> {
+            console.log(responce)
         });
     }
 

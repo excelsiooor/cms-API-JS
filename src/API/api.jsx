@@ -24,14 +24,12 @@ export default class API extends React.Component{
   }
 
   static async logIn ( data ) {
-    const response = await fetch(baseURL + '/logIn', {
+    const response = await fetch(baseURL + '/login', {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        headers: {
-        'Content-Type': 'application/json'
-        },
-      body: JSON.stringify(data)
+      credentials: 'include',
+      body: data,
     });
-    return await response/* .json() */;
+    return await response;
   }
 
   static async postMovie ( data ) {

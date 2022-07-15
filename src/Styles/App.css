@@ -138,3 +138,15 @@ form .form-control i {
     opacity: 1;
     transition: 0.5s;
 }
+
+/**                  media                     */
+
+@media screen and (max-width: 800px) {
+    .main-content {
+        flex-direction: column;
+    }
+    .main-item {
+        height: 600px;
+        background-size: contain;
+    }
+}

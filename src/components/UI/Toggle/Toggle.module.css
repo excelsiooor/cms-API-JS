@@ -55,3 +55,11 @@
     left: auto;
     right: 0;
 }
+
+/**                  media                     */
+
+@media screen and (max-width: 800px) {
+    .toggleLeft, .toggleRight {
+        display: none;
+    }
+}

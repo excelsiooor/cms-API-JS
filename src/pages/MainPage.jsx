@@ -14,8 +14,8 @@ function MainPage() {
     // }
     const [fetchMovies, isLoading, fetchError] = useFetching(async () => { 
             return await API.getAll().then(data => {setMovies([...movies, ...data])
-            })
-        })
+            });
+        });
 
     let update = true
     useEffect(() => {
@@ -23,7 +23,7 @@ function MainPage() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         update = false
         fetchMovies();
-    },[])
+    },[]);
 
     return(
         <div className='main'>
