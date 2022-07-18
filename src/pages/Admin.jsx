@@ -1,9 +1,10 @@
-import CreateMovie from '../components/CreateMovie';
+import {Link} from "react-router-dom";
 
 function Admin() {
     return(
         <div className='admin'>
-            <CreateMovie/>
+            <Link to='/admin/all'>All Movie</Link>
+            <Link to='/admin/create'>CreateNew</Link>
         </div>
     )
 }

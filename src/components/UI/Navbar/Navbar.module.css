@@ -23,7 +23,6 @@
 .logo {
     height: 50px;
     width: 50px;
-    border-radius: 50px;
     background: url('/src/Img/logo.png') no-repeat;
     background-position: center;
     background-size: cover;

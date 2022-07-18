@@ -8,11 +8,8 @@ function MainPage() {
 
     const [movies, setMovies] = useState([]);
     const toggleBar = useRef();
-    // const fetchMovies = async () => { 
-    //     return await API.getAll().then(data => {setMovies([...movies, ...data])
-    //     })
-    // }
-    const [fetchMovies, isLoading, fetchError] = useFetching(async () => { 
+
+    const [fetchMovies, isLoading, fetchError] = useFetching(async () => {
             return await API.getAll().then(data => {setMovies([...movies, ...data])
             });
         });
@@ -28,12 +25,12 @@ function MainPage() {
     return(
         <div className='main'>
             <Toggle movies={movies} scrollRef={toggleBar} />
-            <div ref={toggleBar} id='content' className='main-content'>
+            <div ref={toggleBar} className='main-content'>
             {fetchError &&
                 <h1>Error to load data from server</h1>
             }
             {movies.map(
-                movie => 
+                movie =>
                 <div
                 key={movie.id}
                 className='main-item'

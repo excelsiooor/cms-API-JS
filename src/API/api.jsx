@@ -7,9 +7,36 @@ export default class API extends React.Component{
     const responce = await fetch( baseURL + '/main/movies', {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
     });
-    const films = await responce.json()
-    console.log(films);
-    return films
+    const movies = await responce.json();
+    console.log(movies);
+    return movies;
+  }
+
+  static async getStatus() {
+    const responce = await fetch( baseURL + '/admin/movies/statuses', {
+      method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    });
+    const statuses = await responce.json();
+    console.log(statuses);
+    return await statuses;
+  }
+
+  static async postStatus ( data ) {
+    const response = await fetch(baseURL + '/admin/movies/statuses', {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      body: data
+    });
+    console.log('postStatus>>>' + response);
+    return await response.json();
+  }
+
+  static async postMovie ( data ) {
+    const response = await fetch(baseURL + '/admin/movies', {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      body: data
+    });
+    console.log('postMovie' + response);
+    return await response.json();
   }
 
   static async registration ( data ) {
@@ -20,7 +47,7 @@ export default class API extends React.Component{
         },
       body: JSON.stringify(data)
     });
-    return await response/* .json() */;
+    return response/* .json() */;
   }
 
   static async logIn ( data ) {
@@ -29,17 +56,7 @@ export default class API extends React.Component{
       credentials: 'include',
       body: data,
     });
-    return await response;
-  }
-
-  static async postMovie ( data ) {
-    const response = await fetch(baseURL + '/admin/movies', {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      body: data
-    });
-    console.log('postMovie' + response);
-    return await response.text();
+    return response;
   }
 
 }
-

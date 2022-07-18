@@ -1,10 +1,10 @@
 import { Switch, Redirect, Route } from 'react-router-dom';
-import {publicRoutes, privateRoutes} from './router';
+import {publicRoutes, adminRoutes, userRoutes} from './router';
 
 function AppRouter () {
 return (
     <Switch>
-        {privateRoutes.map(route =>
+        {adminRoutes.map(route =>
             <Route
                 component={route.component}
                 path={route.path}
@@ -13,6 +13,14 @@ return (
             />
         )}
         {publicRoutes.map(route =>
+            <Route
+                component={route.component}
+                path={route.path}
+                exact={route.exact}
+                key={route.path}
+            />
+        )}
+        {userRoutes.map(route =>
             <Route
                 component={route.component}
                 path={route.path}

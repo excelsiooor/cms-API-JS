@@ -25,7 +25,6 @@ function Toggle({movies, scrollRef}) {
             left: startNotState,
             behavior: 'smooth'
         })
-        console.log('moveL'+ start);
     }
     const moveRight = () => {
         let startNotState
@@ -41,7 +40,6 @@ function Toggle({movies, scrollRef}) {
             left: startNotState,
             behavior: 'smooth'
         })
-        console.log('moveR>'+ start);
     }
 
     return(

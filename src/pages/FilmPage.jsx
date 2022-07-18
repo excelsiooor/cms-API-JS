@@ -1,10 +1,10 @@
-import '../Styles/Main.css';
 
-function Admin() {
+
+function FilmPage() {
     return(
-        <div className='main'>
+        <div className='FilmPage'>
         </div>
     )
 }
 
-export default Admin;
+export default FilmPage;
