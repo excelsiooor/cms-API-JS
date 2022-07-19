@@ -1,37 +1,49 @@
 import {useState, useEffect} from "react";
 import API from "../../API/api";
 import Desc from "../UI/Desc/Desc";
+import InputFile from "../UI/InputFile/InputFile";
 import MyButton from "../UI/MyButton/MyButton";
 import MyInput from "../UI/MyInput/MyInput";
 
 
 const CreateMovie = () => {
-
-    const [inputValue, setinputValue] = useState({
-        name: '',
-        trailerURL: '',
-        status: '',
-        description: '',
-        images: [],
+    const [state, setState] = useState({
+        inputValue: {
+            name: '',
+            trailerURL: '',
+            statusId: '',
+            description: '',
+            showInMain: false,
+            images: [],
+        },
+        statuses: [],
     });
-
-    const [statuses, setStatus] = useState([]);
 
     function sendData (e) {
         e.preventDefault();
         let formData = new FormData();
-        formData.append('mainImage', inputValue.images[0]);
-        formData.append('name', inputValue.name);
-        formData.append('trailerURL', inputValue.trailerURL);
-        formData.append('statusId', inputValue.status);
-        formData.append('description', inputValue.description);
+        formData.append('mainImage', state.inputValue.images[0]);
+        formData.append('name', state.inputValue.name);
+        formData.append('trailerURL', state.inputValue.trailerURL);
+        formData.append('showInMain', state.inputValue.showInMain);
+        formData.append('statusId', state.inputValue.statusId);
+        formData.append('description', state.inputValue.description);
         API.postMovie (formData).then((responce)=> {
             console.log(responce)
         });
     }
 
     const statusUpload = async () => {
-        return await API.getStatus().then(data => { setStatus([...statuses, ...data]) });
+        return await API.getStatus().then(data => {
+            let newStatusId = data.find(st => { return st.defaultStatus === true }).id;
+            setState({ 
+                inputValue: {
+                    ...state.inputValue,
+                    statusId: newStatusId,
+                },
+                statuses: data
+            });
+        });
     }
 
     let update = true
@@ -51,20 +63,25 @@ const CreateMovie = () => {
                     type='text' 
                     name='name'
                     placeholder='film name'
-                    onChange={e => setinputValue({...inputValue, name: e.target.value})}
+                    onChange={e => setState({...state, inputValue: { ...state.inputValue, name: e.target.value }})} 
                 />
                 <MyInput 
                     type='text' 
                     name='trailerURL'
                     placeholder='trailer'
-                    onChange={e => setinputValue({...inputValue, trailerURL: e.target.value})}
+                    onChange={e => setState({...state, inputValue: { ...state.inputValue, trailerURL: e.target.value }})}
+                />
+                <input 
+                type='checkbox'
+                name="chackbox"
+                onChange={e => setState({...state, inputValue: { ...state.inputValue, showInMain: e.target.value === 'on' }})}
                 />
                 <select
-                    value={inputValue.status}
+                    value={state.inputValue.statusId}
                     name="status" 
-                    onChange={e => setinputValue({...inputValue, status: e.target.value})}
+                    onChange={e => setState({...state, inputValue: { ...state.inputValue, statusId: e.target.value }})}
                 >
-                    {statuses.map(
+                    {state.statuses?.map(
                         option => 
                         <option
                             key={option.id}
@@ -77,12 +94,12 @@ const CreateMovie = () => {
                 <Desc 
                     type='text' 
                     name='description'
-                    onChange={e => setinputValue({...inputValue, description: e.target.value})}
+                    onChange={e => setState({...state, inputValue: { ...state.inputValue, description: e.target.value }})}
                 />
-                <MyInput 
+                <InputFile
                     type="file" 
                     name="mainImage"
-                    onChange={ e => setinputValue({...inputValue, images: e.target.files})}
+                    onChange={(e) => {setState({...state, inputValue: { ...state.inputValue, images: e.target.files }})}}
                 />
             </div>
             <div className="admin-submit">
