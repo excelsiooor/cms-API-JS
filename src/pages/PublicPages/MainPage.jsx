@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef} from 'react';
-import { Link } from 'react-router-dom';
-import API from '../API/api';
-import Toggle from '../components/UI/Toggle/Toggle';
-import { baseURL} from '../Global/globalValues';
-import { useFetching } from '../hooks/useFetching';
+import API from '../../API/api';
+import MoviesContainer from '../../components/Main/MoviesContainer';
+import Toggle from '../../components/UI/Toggle/Toggle';
+import { useFetching } from '../../hooks/useFetching';
 
 function MainPage() {
 
@@ -13,7 +12,6 @@ function MainPage() {
     const [fetchMovies, isLoading, fetchError] = useFetching(async () => {
             return await API.getAll().then(data => {
                 setMovies([...movies, ...data])
-                
             });
         });
 
@@ -27,26 +25,18 @@ function MainPage() {
 
     return(
         <div className='main'>
+
             <Toggle movies={movies} scrollRef={toggleBar} />
+
             <div ref={toggleBar} className='main-content'>
+
             {fetchError &&
                 <h1>Error to load data from server</h1>
             }
-            {movies.map(
-                movie =>
-                <Link to={'/movies/' + movie.id} onClick={e => localStorage.setItem('id', movie.id)}>
-                <div
-                key={movie.id}
-                className='main-item'
-                style={{backgroundImage:`url(${baseURL}/resources/images/${movie.mainImageName})`}}
-                >
-                {movie.name}
-                <br />
-                {new Date(movie.dateCreate).toDateString()}
-                {new Date(movie.dateCreate).toTimeString()}
-                </div>
-                </Link>
-            )}
+
+            <MoviesContainer movies={movies} />
+
+
             </div>
         </div>
     )

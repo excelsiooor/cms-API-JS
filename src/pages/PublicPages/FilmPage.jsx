@@ -1,6 +1,6 @@
-import API from "../API/api";
+import API from "../../API/api";
 import { useEffect } from "react";
-import { useFetching } from "../hooks/useFetching";
+import { useFetching } from "../../hooks/useFetching";
 
 function FilmPage() {
 

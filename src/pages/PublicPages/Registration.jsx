@@ -1,7 +1,7 @@
-import API from '../API/api';
+import API from '../../API/api';
 import { useState} from 'react';
-import MyInput from "../components/UI/MyInput/MyInput";
-import MyButton from '../components/UI/MyButton/MyButton';
+import MyInput from "../../components/UI/MyInput/MyInput";
+import MyButton from '../../components/UI/MyButton/MyButton';
 
 function Registration () {
 
