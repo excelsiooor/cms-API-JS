@@ -4,9 +4,10 @@ import Navbar from './components/UI/Navbar/Navbar';
 import './Styles/App.css'
 
 function App() {
+
   return (
     <div>
-      <BrowserRouter>
+        <BrowserRouter>
             <Navbar/>
             <AppRouter/>
         </BrowserRouter>

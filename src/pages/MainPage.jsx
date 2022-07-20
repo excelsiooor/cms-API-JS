@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef} from 'react';
+import { Link } from 'react-router-dom';
 import API from '../API/api';
 import Toggle from '../components/UI/Toggle/Toggle';
 import { baseURL} from '../Global/globalValues';
@@ -10,7 +11,9 @@ function MainPage() {
     const toggleBar = useRef();
 
     const [fetchMovies, isLoading, fetchError] = useFetching(async () => {
-            return await API.getAll().then(data => {setMovies([...movies, ...data])
+            return await API.getAll().then(data => {
+                setMovies([...movies, ...data])
+                
             });
         });
 
@@ -31,6 +34,7 @@ function MainPage() {
             }
             {movies.map(
                 movie =>
+                <Link to={'/movies/' + movie.id} onClick={e => localStorage.setItem('id', movie.id)}>
                 <div
                 key={movie.id}
                 className='main-item'
@@ -41,6 +45,7 @@ function MainPage() {
                 {new Date(movie.dateCreate).toDateString()}
                 {new Date(movie.dateCreate).toTimeString()}
                 </div>
+                </Link>
             )}
             </div>
         </div>

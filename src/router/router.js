@@ -14,7 +14,7 @@ export const adminRoutes = [
     {path: '/admin', component: Admin, exact:true},
     {path: '/admin/all', component: AllMovies, exact:true},
     {path: '/admin/create', component: CreateMovie, exact:true},
-    {path: '/admin/update', component: UpdateMovie, exact:true}
+    {path: '/admin/update', component: UpdateMovie, exact:true},
 ];
 
 
@@ -22,7 +22,7 @@ export const publicRoutes = [
     {path: '/main', component: MainPage, exact:true},
     {path: '/registration', component: Registration, exact:true},
     {path: '/logIn', component: LogIn, exact:true},
-    {path: '/film', component: FilmPage, exact:true},
+    {path: '/movies/**', component: FilmPage, exact:true},
 ];
 
 export const userRoutes = [

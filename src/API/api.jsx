@@ -12,6 +12,15 @@ export default class API extends React.Component{
     return movies;
   }
 
+  static async getMovieById(path) {
+    const responce = await fetch( baseURL + path, {
+      method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    });
+    const movieById = await responce.json();
+    console.log(movieById);
+    return movieById;
+  }
+
   static async getStatus() {
     const responce = await fetch( baseURL + '/admin/movies/statuses', {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
