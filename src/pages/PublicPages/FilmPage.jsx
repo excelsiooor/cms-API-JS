@@ -1,18 +1,21 @@
 import API from "../../API/api";
 import { useEffect } from "react";
 import { useFetching } from "../../hooks/useFetching";
+import { useLocation} from "react-router";
 
 function FilmPage() {
 
-    const pathname = window.location.pathname
+    const pathname = window.location
+    const location = useLocation()
 
     const [sendId, isLoading, fetchError] = useFetching(async () => {
-        return await API.getMovieById(pathname).then(data => {
+        return await API.getMovieById(location.pathname).then(data => {
             console.log(data);
         });
     });
 
     function showId () {
+        console.log(location);
         console.log(pathname);
     }
 

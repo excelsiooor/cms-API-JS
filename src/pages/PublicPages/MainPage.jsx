@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef} from 'react';
 import API from '../../API/api';
 import MoviesContainer from '../../components/Main/MoviesContainer';
+import Loader from '../../components/UI/Loader/Loader';
+import Error from '../../components/UI/Error/Error';
 import Toggle from '../../components/UI/Toggle/Toggle';
 import { useFetching } from '../../hooks/useFetching';
 
@@ -31,7 +33,13 @@ function MainPage() {
             <div ref={toggleBar} className='main-content'>
 
             {fetchError &&
-                <h1>Error to load data from server</h1>
+                <Error>
+                    Error to load data from server
+                </Error>
+            }
+
+            {isLoading &&
+                <Loader/>
             }
 
             <MoviesContainer movies={movies} />
