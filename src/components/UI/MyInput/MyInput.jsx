@@ -1,12 +1,12 @@
 import React from 'react';
-import classes from './MyInput.module.css';
+import cl from './MyInput.module.css';
 
 const MyInput = ({...props}) => {
 
         return (
-            <div className={classes.formControl}>
+            <div className={cl.content}>
                 <input
-                className={classes.myInput} {...props}
+                className={cl.item} {...props}
                 />
             </div>
         );

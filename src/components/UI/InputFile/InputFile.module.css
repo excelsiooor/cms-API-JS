@@ -1,18 +1,8 @@
-.field__wrapper{
+.wrapper{
     width: 100%;
     position: relative;
     margin: 15px 0;
     text-align: center;
-}
-
-.field__file{
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-}
-
-.field__fileWrapper{
-    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -26,7 +16,27 @@
         flex-wrap: wrap;
 }
 
-.field__fileFake{
+.file{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.file__item{
+    /* display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; */
+}
+
+.file__fake{
     height: 60px;
     width: calc(100% - 130px);
     display: -webkit-box;
@@ -42,7 +52,7 @@
     color: black;
 }
 
-.field__fileButton{
+.file__button{
     width: 130px;
     height: 60px;
     background: #1bbc9b;

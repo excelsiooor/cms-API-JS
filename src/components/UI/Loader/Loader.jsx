@@ -1,10 +1,10 @@
 
-import classes from './Loader.module.css';
+import cl from './Loader.module.css';
 
 const Loader = () => {
     return (
-        <div className={classes.loaderWrapper}>
-            <div className={classes.loaderItem}></div>
+        <div className={cl.wrapper}>
+            <div className={cl.item}></div>
         </div>
     )
 }

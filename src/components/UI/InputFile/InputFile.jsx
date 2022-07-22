@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import classes from './InputFile.module.css';
+import cl from './InputFile.module.css';
 
 const InputFile = ({type, name, onChange}) => {
 
@@ -18,25 +18,27 @@ const InputFile = ({type, name, onChange}) => {
     }
 
     return (
-            <div className={classes.field__wrapper}>
+            <div className={cl.wrapper}>
                 <input 
                 id="field__file" 
-                className={classes.field__file}
+                className={cl.file}
                 type={type}
                 name={name}
                 onChange={onChangeHandler}
                 />
+
+                <div 
+                className={cl.file__fake}
+                >
+                    {countFiles}
+                </div>
+
                 <label 
-                className={classes.field__fileWrapper} 
+                className={cl.file__item} 
                 htmlFor="field__file"
                 >
                     <div 
-                    className={classes.field__fileFake}
-                    >
-                        {countFiles}
-                    </div>
-                    <div 
-                    className={classes.field__fileButton}
+                    className={cl.file__button}
                     >
                         Выбрать
                     </div>

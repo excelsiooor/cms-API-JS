@@ -1,4 +1,4 @@
-.toggleLeft, .toggleRight {
+.left, .right {
     position: fixed;
     width: 77px;
     height: 77px;
@@ -19,12 +19,12 @@
     align-items: center;
     box-sizing: border-box;
 }
-.toggleRight {
+.right {
     left: auto;
     right: 16px;
 }
 
-.toggleLeft::before, .toggleRight::before {
+.left::before, .right::before {
     content: "";
     display: block;
     width: 24px;
@@ -37,7 +37,7 @@
     transform: rotate(-135deg);
 }
 
-.toggleLeft::after, .toggleRight::after {
+.left::after, .right::after {
     content: "";
     position: fixed;
     width: 104px;
@@ -45,12 +45,12 @@
     left: 0;
     top: 0;
 }
-.toggleRight::before {
+.right::before {
     margin-left: -12px;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-.toggleRight::after {
+.right::after {
     width: 104px;
     left: auto;
     right: 0;
@@ -59,7 +59,7 @@
 /**                  media                     */
 
 @media screen and (max-width: 800px) {
-    .toggleLeft, .toggleRight {
+    .left, .right {
         display: none;
     }
 }

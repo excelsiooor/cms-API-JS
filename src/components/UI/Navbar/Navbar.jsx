@@ -1,17 +1,17 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import classes from './Navbar.module.css';
+import cl from './Navbar.module.css';
 
 const Navbar = () => {
 
     // const logo = '/src/Img/logo.png'
 
     return (
-            <div className={classes.navbar}>
+            <div className={cl.content}>
                 <Link to='/main'>
-                <div className={classes.logo}></div>
+                <div className={cl.logo}></div>
                 </Link>
-                <div className={classes.navbarLinks}>
+                <div className={cl.items}>
                     <Link to='/registration'>Reg</Link>
                     <Link to='/logIn'>LogIn</Link>
                     <Link to='/main'>Main</Link>

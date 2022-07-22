@@ -1,4 +1,4 @@
-input {
+.item {
     width: 165px;
     height: 40px;
     padding-left: 12px;
@@ -9,7 +9,7 @@ input {
     text-transform: uppercase;
 }
 
-.formControl {
+.content {
     width: 220px;
     height: 40px;
     margin: auto;

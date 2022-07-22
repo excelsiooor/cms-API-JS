@@ -1,11 +1,11 @@
 
-import classes from './Error.module.css';
+import cl from './Error.module.css';
 
 const Error = ({children}) => {
     return (
-        <div className={classes.error}>
-            <div className={classes.errorContent}>
-                <div className={classes.errorItem}>
+        <div className={cl.wrapper}>
+            <div className={cl.content}>
+                <div className={cl.item}>
                 {children}
                 </div>
             </div>

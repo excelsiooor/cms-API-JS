@@ -1,21 +1,22 @@
 import API from "../../API/api";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useFetching } from "../../hooks/useFetching";
-import { useLocation} from "react-router";
+import Loader from "../../components/UI/Loader/Loader";
+import Error from "../../components/UI/Error/Error";
 
 function FilmPage() {
 
-    const pathname = window.location
-    const location = useLocation()
+    const pathname = window.location.pathname
+    const [fetchMovie, setFetchMovie] = useState({});
 
     const [sendId, isLoading, fetchError] = useFetching(async () => {
-        return await API.getMovieById(location.pathname).then(data => {
+        return await API.getMovieById(pathname).then(data => {
+            setFetchMovie( ...fetchMovie, ...data )
             console.log(data);
         });
     });
 
     function showId () {
-        console.log(location);
         console.log(pathname);
     }
 
@@ -29,10 +30,27 @@ function FilmPage() {
     },[]);
 
     return(
-        <div className='FilmPage'>
+        <div className='filmpage'>
+
             {fetchError &&
-                <h1>Error to load data from server</h1>
+                <Error>
+                    Error to load data from server
+                </Error>
             }
+
+            {isLoading &&
+                <Loader/>
+            }
+
+            {fetchMovie.map( 
+                movie => 
+
+                <div>
+                    {movie.name}
+                </div>
+
+                )}
+
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import classes from './Toggle.module.css'
+import cl from './Toggle.module.css'
 
 function Toggle({movies, scrollRef}) {
 
@@ -46,12 +46,12 @@ function Toggle({movies, scrollRef}) {
         <div>
             <div 
                 style={{display:statusLeft}}
-                className={classes.toggleLeft}
+                className={cl.left}
                 onClick={moveLeft}
             ></div>
             <div 
                 style={{display:statusRight}}
-                className={classes.toggleRight}
+                className={cl.right}
                 onClick={moveRight}
             ></div>
         </div>

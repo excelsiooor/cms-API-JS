@@ -1,11 +1,11 @@
 import React from 'react';
-import classes from './Desc.module.css';
+import cl from './Desc.module.css';
 
 const Desc = ({...props}) => {
         return (
-            <div className={classes.descControl}>
+            <div className={cl.container}>
                 <textarea
-                className={classes.desc} {...props}
+                className={cl.item} {...props}
                 />
             </div>
         );
