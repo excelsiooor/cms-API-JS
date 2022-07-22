@@ -40,6 +40,9 @@ function Toggle({movies, scrollRef}) {
             left: startNotState,
             behavior: 'smooth'
         })
+        console.log( widthContent);
+        console.log( start);
+        console.log(startNotState);
     }
 
     return(
