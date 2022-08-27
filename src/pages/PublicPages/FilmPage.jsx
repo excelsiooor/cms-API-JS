@@ -4,6 +4,7 @@ import { useFetching } from "../../hooks/useFetching";
 import Loader from "../../components/UI/Loader/Loader";
 import Error from "../../components/UI/Error/Error";
 import { baseURL } from "../../Global/globalValues";
+import { Link } from "react-router-dom";
 
 function FilmPage() {
 
@@ -44,11 +45,20 @@ function FilmPage() {
                 <Loader/>
             }
 
+                <ul className="breadcrumbs__list">
+                    <li className="breadcrumbs__item">
+                        <Link to='/main'>Main</Link>
+                    </li>
+                    <li className="breadcrumbs__item itemlast">
+                        <Link to={pathname}>{fetchMovie.name}</Link>
+                    </li>
+                </ul>
+
                 <div className="film__content">
                     <div className="film__info">
                         <div className="film__info-colm1">
                             <div className="poster__container">
-                                <img src={fetchMovie.mainImageName} alt="woops" title={fetchMovie.name} />
+                                <img src={baseURL + '/resources/images/' + fetchMovie.mainImageName} alt="woops" title={fetchMovie.name} />
                                 <div className="image"></div>
                             </div>
                         </div>

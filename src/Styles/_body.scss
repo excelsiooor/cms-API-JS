@@ -36,6 +36,20 @@ html {
 a:-webkit-any-link {
     cursor: pointer;
 }
+a {
+    text-decoration:none;
+    color: rgba(0, 0, 0, .8);
+}
+
 ::-webkit-scrollbar {
     width: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 0;
 }
