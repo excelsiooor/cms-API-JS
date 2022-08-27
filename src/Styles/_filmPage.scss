@@ -1,0 +1,96 @@
+.film__container{
+    height: auto;
+    max-width: 1424px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 16px;
+}
+
+.film__content {
+    height: auto;
+}
+
+.film__info {
+    box-sizing: border-box;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    position: relative;
+}
+
+.film__info-colm1 {
+    width: 250px;
+    min-width: 250px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 96px;
+    z-index: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    height: calc(100vh - 160px);
+}
+
+.poster__container {
+    position: relative;
+}
+
+.film__info-colm2 {
+    width: 100%;
+    padding: 0 40px;
+    position: relative;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+}
+
+.film__info-colm3 {
+    width: 350px;
+    min-width: 350px;
+    -webkit-order: 3;
+    -ms-flex-order: 3;
+    order: 3;
+    box-sizing: border-box;
+    position: -webkit-sticky;
+    position: sticky;
+    right: 0;
+    top: 96px;
+    height: calc(100vh - 180px);
+    background-color: rgba(250, 235, 215, 0.95);
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.film__info-dates {
+    padding: 16px 8px;
+    margin-top: 0;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, .8);
+    border-bottom: 1px solid rgba(0, 0, 0,.1);
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: 500;
+}
+
+.film__info-dates svg {
+    margin-right: 16px;
+    display: block;
+    min-width: 21px;
+}
+
+.mobile {
+    display: none;
+}
+
+.image {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

@@ -1,0 +1,109 @@
+@media screen and (max-width: 750px) {
+    .main-content {
+        flex-direction: column;
+    }
+    .main__item-cover {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .main__item.force_hover
+    .main__item-br,
+    .main__item:hover
+    .main__item-br {
+        -webkit-filter: blur(7px) grayscale(90%);
+        filter: blur(7px) grayscale(90%);
+        transition: 0.5s;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .film__container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .film__info {
+        padding: 0;
+        display: block;
+    }
+    .film__info .film__info-colm1 {
+        display: none;
+    }
+    .film__info .film__info-colm3 {
+        position: relative;
+        width: 100%;
+        top: 0;
+        background-color: rgba(250, 235, 215, 0.95);
+        right: auto;
+        min-width: 100%;
+        /* padding: 16px 16px 0; */
+        height: auto;
+        border-radius: 0;
+    }
+    .film__info .film__info-colm2 {
+        width: 100%;
+        margin-left: 0;
+        position: relative;
+        padding: 16px;
+        color: rgba(0, 0, 0, .8);
+        background-color: rgba(250, 235, 215, 0.95);
+        box-sizing: border-box;
+    }
+    .mobile {
+        display: block;
+    }
+    .mobile__jumbo {
+        width: 100vw;
+        height: 65vw;
+        position: relative;
+        overflow: hidden;
+    }
+    .film__info .mobile__jumbo .bg {
+        /* background: url(//source.unsplash.com/Q7PclNhVRI0); */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-position: center;
+        background-size: cover;
+        opacity: .9;
+    }
+    .film__info .mobile__title {
+        position: relative;
+        padding: 16px 16px 24px;
+        color: rgba(0, 0, 0, .8);
+        font-size: 20px;
+        line-height: 22px;
+        font-weight: 700;
+        background-color: rgba(250, 235, 215, 0.95);
+    }
+    .film__info .mobile__jumbo .mobile__trailer {
+        width: 64px;
+        height: 64px;
+        background-color: rgba(255, 200, 0, 0.95);
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        left: calc(50% - 32px);
+        top: calc(50% - 32px);
+    }
+    .film__info .mobile__jumbo .mobile__trailer::after {
+        content: "";
+        position: absolute;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        left: 56%;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 14px 0 14px 20px;
+        border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) #fff;
+    }
+}
