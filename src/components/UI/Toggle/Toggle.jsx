@@ -7,42 +7,37 @@ function Toggle({movies, scrollRef}) {
     const [statusRight, setStatusRight] = useState('');
     const [start, setStart] = useState(0);
 
+    let step
     const widthCard = 350;
     const widthContent = movies.length * widthCard;
-    const toScroll = scrollRef.current
 
     const moveLeft = () => {
-        let startNotState
         if (start > 0) {
-            startNotState = start - widthCard
-            setStart(startNotState);
+            step = start - widthCard
+            setStart(step);
             setStatusRight ('flex')
         } 
-        if (startNotState === 0) {
+        if (step === 0) {
             setStatusLeft ('none')
         }
-        toScroll.scroll({
-            left: startNotState,
+        scrollRef.current.scroll({
+            left: step,
             behavior: 'smooth'
         })
     }
     const moveRight = () => {
-        let startNotState
         if (widthContent > start + document.documentElement.clientWidth) {
-            startNotState = start + widthCard
-            setStart(startNotState);
+            step = start + widthCard
+            setStart(step);
             setStatusLeft('flex')
         } 
         if (widthContent < start + document.documentElement.clientWidth + widthCard) {
             setStatusRight ('none')
         }
-        toScroll.scroll({
-            left: startNotState,
+        scrollRef.current.scroll({
+            left: step,
             behavior: 'smooth'
         })
-        console.log( widthContent);
-        console.log( start);
-        console.log(startNotState);
     }
 
     return(

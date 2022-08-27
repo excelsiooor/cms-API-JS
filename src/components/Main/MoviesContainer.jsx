@@ -1,33 +1,39 @@
 import { Link } from 'react-router-dom';
 import { baseURL} from '../../Global/globalValues';
-import { useRef } from 'react';
+import { useRef} from 'react';
 import Toggle from '../UI/Toggle/Toggle';
+import React from 'react';
 
-function MoviesContainer ({movies}) {
+const MoviesContainer = ({movies}) => {
 
     const toggleBar = useRef();
 
     return (
         <div ref={toggleBar} className='main-content'>
+
             <Toggle movies={movies} scrollRef={toggleBar} />
+
             {movies.map(
                 movie =>
                 <div
                 key={movie.id}
                 className='main__item'
-                // style={{backgroundImage:`url(${baseURL}/resources/images/${movie.mainImageName})`}}
                 >
+
+                    <div className='main__item-br'
+                    style={{backgroundImage:`url(${baseURL}/resources/images/${movie.mainImageName})`}}
+                    ></div>
+
+                    <div className='main__item-mask'></div>
 
                     <Link
                     className='main__item-name'
                     to={'/movies/' + movie.id}
+                    title={movie.name}
                     >
-                        {movie.name}                
+                        <span>{movie.name}</span>
                     </Link>
 
-                    <div className='main__item-cover'>
-
-                    </div>
                 </div>
             )}
         </div>
