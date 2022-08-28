@@ -155,6 +155,10 @@ ul {
   display: grid;
 }
 
+.form-content div {
+  margin-bottom: 20px;
+}
+
 .admin-submit {
   width: 100%;
   display: -webkit-box;
@@ -487,4 +491,26 @@ ul {
     -webkit-transition: 0.5s;
     transition: 0.5s;
   }
+}
+
+.select {
+  height: 50px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.desk {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  line-height: 1;
+  font-size: 14px;
+  letter-spacing: 1px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid #000000;
 }

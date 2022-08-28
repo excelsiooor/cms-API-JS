@@ -11,7 +11,7 @@ const InputFile = ({type, name, onChange}) => {
         for (let i = 0; i < e.target.files.length; i++) {
             let file = e.target.files[i];
             if ('name' in file) {
-                countInputFiles += "name: " + file.name;
+                countInputFiles += file.name;
             }
         }
         setCountFiles('Выбрано файл: ' + countInputFiles)

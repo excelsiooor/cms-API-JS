@@ -32,6 +32,15 @@
     width: 100%;
     height: auto;
     display: grid;
+
+    & div {
+        margin-bottom: 20px;
+    }
+}
+
+.form__information {
+    // display: flex;
+    // justify-content: center;
 }
 
 .admin-submit{

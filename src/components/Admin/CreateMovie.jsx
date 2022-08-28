@@ -1,9 +1,11 @@
 import {useState, useEffect} from "react";
 import API from "../../API/api";
+import Checkbox from "../UI/Checkbox/Checkbox";
 import Desc from "../UI/Desc/Desc";
 import InputFile from "../UI/InputFile/InputFile";
 import MyButton from "../UI/MyButton/MyButton";
 import MyInput from "../UI/MyInput/MyInput";
+import Select from "../UI/Select/Select";
 
 
 const CreateMovie = () => {
@@ -16,7 +18,7 @@ const CreateMovie = () => {
             showInMain: false,
             images: [],
         },
-        statuses: [],
+        statuses: [{name: 'first', id: 1}, {name: 'second', id: 2}, {name: 'third', id: 3}],
     });
 
     function sendData (e) {
@@ -55,57 +57,65 @@ const CreateMovie = () => {
     },[]);
 
     return ( 
-        <form 
-        className="admin-form"
-        onSubmit={e => {sendData(e)}}>
-            <div className="form-content">
-                <MyInput 
-                    type='text' 
-                    name='name'
-                    placeholder='film name'
-                    onChange={e => setState({...state, inputValue: { ...state.inputValue, name: e.target.value }})} 
-                />
-                <MyInput 
-                    type='text' 
-                    name='trailerURL'
-                    placeholder='trailer'
-                    onChange={e => setState({...state, inputValue: { ...state.inputValue, trailerURL: e.target.value }})}
-                />
-                <input 
-                type='checkbox'
-                name="chackbox"
-                onChange={e => setState({...state, inputValue: { ...state.inputValue, showInMain: e.target.value === 'on' }})}
-                />
-                <select
-                    value={state.inputValue.statusId}
-                    name="status" 
-                    onChange={e => setState({...state, inputValue: { ...state.inputValue, statusId: e.target.value }})}
-                >
-                    {state.statuses?.map(
-                        option => 
-                        <option
-                            key={option.id}
-                            value={option.id}
-                        >
-                            {option.name}
-                        </option>
-                    )}
-                </select>
-                <Desc 
-                    type='text' 
-                    name='description'
-                    onChange={e => setState({...state, inputValue: { ...state.inputValue, description: e.target.value }})}
-                />
-                <InputFile
-                    type="file" 
-                    name="mainImage"
-                    onChange={(e) => {setState({...state, inputValue: { ...state.inputValue, images: e.target.files }})}}
-                />
-            </div>
-            <div className="admin-submit">
-                <MyButton type="submit">submit</MyButton>
-            </div>
-        </form>
+        <div className="admin">
+            <form 
+            className="admin-form"
+            onSubmit={e => {sendData(e)}}>
+                <div className="form-content">
+
+                    <div className="form__information">
+                        <div className="form__name">
+                            <MyInput 
+                            type='text' 
+                            name='name'
+                            placeholder='movie name'
+                            onChange={e => setState({...state, inputValue: { ...state.inputValue, name: e.target.value }})} 
+                            />
+                            <MyInput 
+                                type='text' 
+                                name='trailerURL'
+                                placeholder='trailer'
+                                onChange={e => setState({...state, inputValue: { ...state.inputValue, trailerURL: e.target.value }})}
+                            />
+                        </div>
+                        <div className="from__desk">
+                            <Desc 
+                            type='text' 
+                            name='description'
+                            placeholder='Somthing about movie...'
+                            onChange={e => setState({...state, inputValue: { ...state.inputValue, description: e.target.value }})}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="form__status">
+                        <Select
+                        value={state.inputValue.statusId}
+                        name="status" 
+                        onChange={e => setState({...state, inputValue: { ...state.inputValue, statusId: e.target.value }})}
+                        options={state.statuses}
+                        />
+                        <Checkbox
+                        type='checkbox'
+                        name="chackbox"
+                        onChange={e => setState({...state, inputValue: { ...state.inputValue, showInMain: e.target.value === 'on' }})}
+                        />
+                    </div>
+
+                    <div className="form__image">
+                        <InputFile
+                            type="file" 
+                            name="mainImage"
+                            onChange={(e) => {setState({...state, inputValue: { ...state.inputValue, images: e.target.files }})}}
+                        />
+                    </div>
+                </div>
+
+                <div className="admin-submit">
+                    <MyButton type="submit">submit</MyButton>
+                </div>
+            </form>
+        </div>
     );
 }
 
